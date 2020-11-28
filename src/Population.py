@@ -89,9 +89,9 @@ class Population:
                 d2 = Util.PixelDelta(p, c2.image[x][y])
                 if shouldMutate and np.random.uniform(0, 1) > self.config.mutationProbability:
                     child.image[x][y] = Util.RandomPixel()
-
-                if d1<d2:
-                    child.image[x][y] = c1.image[x][y]
                 else:
-                    child.image[x][y] = c2.image[x][y]
+                    if d1<d2:
+                        child.image[x][y] = c1.image[x][y]
+                    else:
+                        child.image[x][y] = c2.image[x][y]
         return child
